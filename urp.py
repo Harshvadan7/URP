@@ -191,9 +191,6 @@ def Complement(cubeList):
     else:
         x = mostBinate(cubeList)
 
-        PCubeList = cofactor(cubeList,False,x)
-        NCubeList = cofactor(cubeList,True,x)
-
         PCubeList = Complement(cofactor(cubeList,True,x))
         NCubeList = Complement(cofactor(cubeList,False,x))
 
@@ -233,19 +230,21 @@ def writeCubes(cubeList):
         cubeValues.clear()
         not11 = 0
 
-    print(line)
-    f = open("part5answer.txt",'w')
+    f = open("output/part1answer.txt",'w')
     f.writelines(line)
-
-
-
+    print("The file has been created in the output folder!")
 
 
 def main():
-    filename = 'part5.pcn'
+    filename = 'input/part1.pcn'
     cubeList = createCubeList(filename)
+    print("The obtained cubelist is:")
+    print(cubeList)
+    print('\n')
     compCubeList = Complement(cubeList)
+    print("The complemented cubelist is:")
     print(compCubeList)
+    print('\n')
     writeCubes(compCubeList)
 
 
